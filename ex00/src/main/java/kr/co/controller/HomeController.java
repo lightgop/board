@@ -1,4 +1,4 @@
-package org.zerock.controller;
+package kr.co.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

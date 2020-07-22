@@ -10,12 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.domain.SampleDTO;
+import kr.co.domain.SampleDTOList;
+import kr.co.domain.TodoDTO;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping("/sample/*")
 @Log4j
 public class SampleController {
+	
+//	@InitBinder
+//	public void initBinder(WebDataBinder binder) {
+//	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//	binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat,false));
+//	}
 	
 	@RequestMapping("")
 	public void basic() {
@@ -27,7 +35,7 @@ public class SampleController {
 	public void basicGet() {
 
 		log.info("basic get...................");
-
+		
 	}
 
 	@GetMapping("/basicOnlyGet")
@@ -68,6 +76,20 @@ public class SampleController {
 		log.info("array ids: " + Arrays.toString(ids));
 
 		return "ex02Array";
+	}
+	
+	@GetMapping("/ex02Bean")
+	public String ex02Bean(SampleDTOList list) {
+
+		log.info("list dtos: " + list);
+
+		return "ex02Bean";
+	}
+	
+	@GetMapping("/ex03")
+	public String ex03(TodoDTO todo) {
+		log.info("todo: " + todo);
+		return "ex03";
 	}
 
 }

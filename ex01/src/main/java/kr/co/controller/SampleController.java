@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.domain.SampleDTO;
 import kr.co.domain.SampleDTOList;
@@ -102,4 +103,20 @@ public class SampleController {
 		return "/sample/ex04";
 	}
 
+	@GetMapping("/ex05")
+	public void ex05() {
+		
+		log.info("/ex05......");
+	}
+	
+	@GetMapping("/ex06")
+	public @ResponseBody SampleDTO ex06() {
+		
+		log.info("/ex06........");
+		SampleDTO dto = new SampleDTO();
+		dto.setAge(10);
+		dto.setName("홍길동");
+		
+		return dto;
+	}
 }

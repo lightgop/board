@@ -32,7 +32,6 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.co.controller" />
-	
-	
-	
+	<context:component-scan base-package="kr.co.exception" />
+
 </beans:beans>
